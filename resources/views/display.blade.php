@@ -16,7 +16,7 @@
         </tbody>
     </table>
 </div>
-<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{  asset('js/app.js') }}"></script>
 <script>
     function loadReadings() {
         fetch('/gas-readings')
