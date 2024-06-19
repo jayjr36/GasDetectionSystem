@@ -26,10 +26,11 @@
                 table.innerHTML = '';
                 data.forEach(reading => {
                     const row = document.createElement('tr');
+                    const formattedDate = new Date(reading.created_at).toLocaleString();
                     row.innerHTML = `
                         <td>${reading.gas_level}</td>
                         <td>${reading.fire_detected ? 'Yes' : 'No'}</td>
-                        <td>${reading.created_at}</td>
+                        <td>${formattedDate}</td>
                     `;
                     table.appendChild(row);
                 });
