@@ -22,6 +22,7 @@
                     <a href="{{ url('/display-page') }}" class="btn btn-primary">
                         View Gas Readings
                     </a>
+                    <a href="{{route('send.email')}}">Send Email</a>
                 </div>
             </div>
         </div>
