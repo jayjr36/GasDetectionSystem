@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -37,4 +39,15 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
     }
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->role_id === 1) {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return redirect()->route('home');
+        }
+    }
+    
+    
+
 }

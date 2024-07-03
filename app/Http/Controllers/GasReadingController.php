@@ -7,6 +7,24 @@ use App\Models\GasReading;
 
 class GasReadingController extends Controller
 {
+
+    public function indexGraph()
+    {
+        $readings = GasReading::latest()->take(10)->get(); // Example: Fetch latest 10 readings, adjust as needed
+        return response()->json($readings);
+    }
+
+    public function graph()
+    {
+        $readings = GasReading::latest()->take(20)->get(); // Example: Fetch latest 20 readings for graph
+        $labels = $readings->pluck('created_at')->map(function ($date) {
+            return $date->format('Y-m-d H:i:s');
+        });
+
+        $gasLevels = $readings->pluck('gas_level');
+
+        return view('graph', compact('labels', 'gasLevels'));
+    }
     public function store(Request $request)
     {
         $validated = $request->validate([

@@ -22,6 +22,9 @@
                     <a href="{{ url('/display-page') }}" class="btn btn-primary">
                         View Gas Readings
                     </a>
+                    <a href="{{ url('/gas-graph') }}" class="btn btn-primary">
+                        Graph
+                    </a>
                 </div>
             </div>
         </div>
