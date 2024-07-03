@@ -25,6 +25,7 @@
                     <a href="{{ url('/gas-graph') }}" class="btn btn-primary">
                         Graph
                     </a>
+                    {{-- <a href="{{route('send.email')}}">Send Email</a> --}}
                 </div>
             </div>
         </div>

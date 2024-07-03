@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GasReadingController;
+use App\Http\Controllers\MailController;
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -35,3 +37,5 @@ Route::post('/admin/send-email', [AdminController::class, 'sendEmail'])->name('a
 Route::get('/admin/email-logs', [AdminController::class, 'emailLogs'])->name('admin.emailLogs');
 
 Route::get('/gas-graph', [GasReadingController::class, 'graph'])->name('gas.graph');
+Route::get('/send-email', [MailController::class, 'showForm'])->name('send.email');
+Route::post('/send-email', [MailController::class, 'sendEmail'])->name('send.email.send');
