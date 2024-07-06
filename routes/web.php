@@ -39,3 +39,4 @@ Route::get('/admin/email-logs', [AdminController::class, 'emailLogs'])->name('ad
 Route::get('/gas-graph', [GasReadingController::class, 'graph'])->name('gas.graph');
 Route::get('/send-email', [MailController::class, 'showForm'])->name('send.email');
 Route::post('/send-email', [MailController::class, 'sendEmail'])->name('send.email.send');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'getEmailNotifications'])->name('home-mail');

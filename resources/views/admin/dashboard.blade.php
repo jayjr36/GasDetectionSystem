@@ -37,16 +37,17 @@
 </head>
 <body>
     <div class="sidebar">
-        <h2 class="text-white">ADMIN</h2>
+        <h2 class="text-white text-center py-5">ADMIN</h2>
         {{-- <a href="{{ route('admin.dashboard') }}" target="content">Dashboard</a> --}}
-       
-        <a href="{{ route('admin.users') }}" target="content">Manage Users</a>
-        <a href="{{ route('admin.emailLogs') }}" target="content">Email Logs</a>
-        <a href="{{ url('/display-page') }}" class="btn btn-primary">
+    <div style="height: 50px;"></div>
+        <a href="{{ route('admin.users') }}" target="content" class="btn btn-outline-primary mb-2">Manage Users</a>
+        <a href="{{ route('admin.emailLogs') }}" target="content" class="btn btn-outline-primary mb-2">Email Logs</a>
+        <a href="{{ url('/display-page') }}" class="btn btn-outline-primary mb-2">
             Gas Readings
         </a>
         <!-- Add more links as needed -->
     </div>
+    
     <div class="content">
         <iframe name="content" src="{{ route('admin.users') }}"></iframe>
     </div>

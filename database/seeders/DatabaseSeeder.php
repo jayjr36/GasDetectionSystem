@@ -33,6 +33,13 @@ class DatabaseSeeder extends Seeder
             'role_id' => $adminRole->id,
         ]);
 
+        User::create([
+            'name' => 'Fire',
+            'email' => 'fire.rescue@zimamoto.go.tz',
+            'password' => Hash::make('null'),
+            'role_id' => $adminRole->id,
+        ]);
+
         $this->call([
             GasReadingSeeder::class,
             RolesTableSeeder::class

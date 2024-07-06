@@ -26,6 +26,35 @@
                         Graph
                     </a>
                     {{-- <a href="{{route('send.email')}}">Send Email</a> --}}
+
+                </div>
+            </div>
+
+            <div class="card pt-5">
+                <div class="card-header text-center">
+                    <h3>Notifications</h3>
+                    <div class="card-body">
+                        @if($emailLogs->isEmpty())
+                        <p>No email notifications available.</p>
+                    @else
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Message</th>
+                                    <th>Received</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($emailLogs as $log)
+                                    <tr>
+                                        <td>{{ $log->message }}</td>
+                                        <td>{{ $log->created_at }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                    </div>
                 </div>
             </div>
         </div>
