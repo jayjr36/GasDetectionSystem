@@ -42,7 +42,7 @@
     <div style="height: 50px;"></div>
         <a href="{{ route('admin.users') }}" target="content" class="btn btn-outline-primary mb-2">Manage Users</a>
         <a href="{{ route('admin.emailLogs') }}" target="content" class="btn btn-outline-primary mb-2">Email Logs</a>
-        <a href="{{ url('/display-page') }}" class="btn btn-outline-primary mb-2">
+        <a href="{{ url('/display-page') }}" target="content" class="btn btn-outline-primary mb-2">
             Gas Readings
         </a>
         <!-- Add more links as needed -->
