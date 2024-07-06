@@ -34,4 +34,5 @@
         <button type="submit" class="btn btn-primary">Update User</button>
     </form>
 </div>
+
 @endsection
