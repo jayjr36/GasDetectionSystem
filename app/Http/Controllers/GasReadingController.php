@@ -4,9 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\GasReading;
+use Illuminate\Support\Facades\Mail;
 
 class GasReadingController extends Controller
 {
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'gas_level' => 'required|numeric',
+            'fire_detected' => 'required|boolean',
+        ]);
+
+        $gasReading = GasReading::create($validated);
+
+        if ($validated['fire_detected']) {
+            Mail::to(['johnjr092@gmail.com', 'meshackmalekano7@gmail.com'])->send(new \App\Mail\FireAlertMail($gasReading));
+        }
+
+        return response()->json($gasReading, 201);
+    }
+
 
     public function indexGraph()
     {
@@ -25,18 +43,7 @@ class GasReadingController extends Controller
 
         return view('graph', compact('labels', 'gasLevels'));
     }
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'gas_level' => 'required|numeric',
-            'fire_detected' => 'required|boolean',
-        ]);
-
-        $gasReading = GasReading::create($validated);
-
-        return response()->json($gasReading, 201);
-    }
-
+  
     public function index()
     {
         $gasReadings = GasReading::orderBy('created_at', 'desc')->get();
