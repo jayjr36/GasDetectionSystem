@@ -25,6 +25,8 @@
                     <a href="{{ url('/gas-graph') }}" class="btn btn-primary">
                         Graph
                     </a>
+                    <a href="{{ route('gas-readings.download-pdf') }}" class="btn btn-success">Download PDF</a>
+                       
                     {{-- <a href="{{route('send.email')}}">Send Email</a> --}}
 
                 </div>
@@ -33,8 +35,9 @@
             <div class="card pt-5">
                 <div class="card-header text-center">
                     <h3>Notifications</h3>
-                    <div class="card-body">
-                        @if($emailLogs->isEmpty())
+                </div>
+                <div class="card-body">
+                    @if($emailLogs->isEmpty())
                         <p>No email notifications available.</p>
                     @else
                         <table class="table table-bordered">
@@ -54,12 +57,9 @@
                             </tbody>
                         </table>
                     @endif
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

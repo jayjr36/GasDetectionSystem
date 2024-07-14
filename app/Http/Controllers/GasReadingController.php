@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\GasReading;
 use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class GasReadingController extends Controller
 {
@@ -19,7 +20,7 @@ class GasReadingController extends Controller
         $gasReading = GasReading::create($validated);
 
         if ($validated['fire_detected']) {
-            Mail::to(['johnjr092@gmail.com', 'meshackmalekano7@gmail.com'])->send(new \App\Mail\FireAlertMail($gasReading));
+            Mail::to(['fire.rescue1@zimamoto.go.tz', 'meshackmalekano7@gmail.com'])->send(new \App\Mail\FireAlertMail($gasReading));
         }
 
         return response()->json($gasReading, 201);
@@ -49,5 +50,14 @@ class GasReadingController extends Controller
         $gasReadings = GasReading::orderBy('created_at', 'desc')->get();
 
         return response()->json($gasReadings);
+    }
+
+    public function downloadGasReadingsPdf()
+    {
+        $gasReadings = GasReading::all();
+
+        $pdf = Pdf::loadView('gas_readings_pdf', compact('gasReadings'));
+
+        return $pdf->download('gas_readings.pdf');
     }
 }

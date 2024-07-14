@@ -3,19 +3,22 @@
 @section('content')
 <div class="container mt-5">
     <h1 class="text-center">Gas Detection System</h1>
-    <table class="table table-bordered mt-4">
-        <thead>
-            <tr>
-                <th>Gas Level</th>
-                <th>Fire Detected</th>
-                <th>Timestamp</th>
-            </tr>
-        </thead>
-        <tbody id="gas-readings">
-            <!-- Data will be inserted here -->
-        </tbody>
-    </table>
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered table-striped">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>Gas Level</th>
+                    <th>Fire Detected</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="gas-readings">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
 </div>
+
 <script src="{{  asset('js/app.js') }}"></script>
 <script>
     function loadReadings() {
