@@ -36,9 +36,9 @@
                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                         </form>
                                     @endif
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#emailModal{{ $user->id }}">
+                                        {{-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#emailModal{{ $user->id }}">
                                             Send Email
-                                        </button>
+                                        </button> --}}
                                     </div>
                                 </td>
                             </tr>
